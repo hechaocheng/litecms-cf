@@ -1,0 +1,29 @@
+# 显式声明静态资源 MIME，避免 Pages 托管层把 .js 误判为 text/css
+# 导致浏览器 nosniff 校验失败（Refused to execute script ... MIME type 'text/css'）
+
+/assets/*.js
+  Content-Type: application/javascript; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600
+
+/assets/js/*
+  Content-Type: application/javascript; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+/assets/*.css
+  Content-Type: text/css; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600
+
+/assets/css/*
+  Content-Type: text/css; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+/assets/*.png
+  Content-Type: image/png
+
+/assets/*.jpg
+  Content-Type: image/jpeg
+
+/assets/*.svg
+  Content-Type: image/svg+xml
